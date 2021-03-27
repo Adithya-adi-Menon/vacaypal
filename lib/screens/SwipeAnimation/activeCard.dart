@@ -107,7 +107,7 @@ Positioned cardDemo(
                                           new BorderRadius.circular(60.0),
                                     ),
                                     child: new Text(
-                                      "DON'T",
+                                      "NOPE",
                                       style: new TextStyle(color: Colors.white),
                                     ),
                                   )),

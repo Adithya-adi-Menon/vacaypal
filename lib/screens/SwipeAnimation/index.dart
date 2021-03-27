@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vacationpal/screens/SwipeAnimation/data.dart';
 import 'package:vacationpal/screens/SwipeAnimation/dummyCard.dart';
 import 'package:vacationpal/screens/SwipeAnimation/activeCard.dart';
@@ -6,6 +7,7 @@ import 'package:vacationpal/screens/SwipeAnimation/activeCard.dart';
 //import 'package:animation_exp/PageReveal/page_main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
+import 'package:google_fonts/google_fonts.dart';
 
 class CardDemo extends StatefulWidget {
   @override
@@ -24,6 +26,8 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
   List selectedData = [];
   void initState() {
     super.initState();
+
+    
 
     _buttonController = new AnimationController(
         duration: new Duration(milliseconds: 1000), vsync: this);
@@ -134,8 +138,8 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
           leading: new Container(
             margin: const EdgeInsets.all(15.0),
             child: new Icon(
-              Icons.equalizer,
-              color: Colors.cyan,
+              Icons.message,
+              color: Colors.white,
               size: 30.0,
             ),
           ),
@@ -150,8 +154,8 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
               child: new Container(
                   margin: const EdgeInsets.all(15.0),
                   child: new Icon(
-                    Icons.search,
-                    color: Colors.cyan,
+                    Icons.add,
+                    color: Colors.white,
                     size: 30.0,
                   )),
             ),
@@ -160,9 +164,9 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Text(
-                "EVENTS",
-                style: new TextStyle(
-                    fontSize: 12.0,
+                "VACAY PAL",
+                style: GoogleFonts.poppins(
+                    fontSize: 16.0,
                     letterSpacing: 3.5,
                     fontWeight: FontWeight.bold),
               ),
@@ -185,7 +189,7 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
           color: new Color.fromRGBO(106, 94, 175, 1.0),
           alignment: Alignment.center,
           child: dataLength > 0
-              ? new Stack(
+              ?  Stack(
                   alignment: AlignmentDirectional.center,
                   children: data.map((item) {
                     if (data.indexOf(item) == dataLength - 1) {
@@ -212,7 +216,7 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
                     }
                   }).toList())
               : new Text("No Event Left",
-                  style: new TextStyle(color: Colors.white, fontSize: 50.0)),
+                  style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 50.0)),
         )));
   }
 }

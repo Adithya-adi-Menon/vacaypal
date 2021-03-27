@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:vacationpal/widget/colors.dart';
 import 'package:vacationpal/widget/fadeanimation.dart';
 import 'package:vacationpal/routes.dart';
+import 'package:lottie/lottie.dart';
 
 class SignUp extends StatefulWidget {
   final Function toggle;
@@ -86,8 +87,8 @@ class _SignUpState extends State<SignUp> {
                       ),
                       FadeAnimation(
                         1.5,
-                        Text("Welcome",
-                            style: GoogleFonts.nunito(
+                        Text("Hi there!",
+                            style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                     color: Colors.black,
                                     fontSize: 40,
@@ -98,23 +99,21 @@ class _SignUpState extends State<SignUp> {
                       ),
                       FadeAnimation(
                         1.5,
-                        Text("Create new account",
-                            style: GoogleFonts.nunito(
+                        Text("Create a new account",
+                            style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                     color: Colors.black,
                                     fontSize: 17,
-                                    fontWeight: FontWeight.w600))),
+                                    fontWeight: FontWeight.w500))),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       FadeAnimation(
                         1.5,
-                        Image.asset(
-                          'assets/chat-bubble.png',
-                          width: 100,
-                          height: 80,
-                        ),
+                        Container(
+                          height: 300,
+                          child: Lottie.asset("assets/hello.json"))
                       ),
                       Padding(
                           padding: const EdgeInsets.all(15.0),
@@ -158,11 +157,11 @@ class _SignUpState extends State<SignUp> {
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                       borderSide: BorderSide(
-                                                          color: Colors.white)),
+                                                          color: Colors.blue)),
                                               focusedBorder:
                                                   UnderlineInputBorder(
                                                       borderSide: BorderSide(
-                                                          color: Colors.white)),
+                                                          color: Colors.blue)),
                                               hintText: "Enter Username"),
                                         ),
                                       ),
@@ -193,11 +192,11 @@ class _SignUpState extends State<SignUp> {
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                       borderSide: BorderSide(
-                                                          color: Colors.white)),
+                                                          color: Colors.blue)),
                                               focusedBorder:
                                                   UnderlineInputBorder(
                                                       borderSide: BorderSide(
-                                                          color: Colors.white)),
+                                                          color: Colors.blue)),
                                               hintText: "Email Address"),
                                         ),
                                       ),
@@ -242,16 +241,6 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 10,
                       ),
-                      FadeAnimation(
-                          1.5,
-                          Text(
-                            "Forgot Password?",
-                            style: GoogleFonts.nunito(
-                                textStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500)),
-                          )),
                       SizedBox(
                         height: 5,
                       ),
@@ -273,7 +262,7 @@ class _SignUpState extends State<SignUp> {
                                   widget.toggle();
                                 },
                                 child: Text(
-                                  "Login",
+                                  " Login",
                                   style: GoogleFonts.nunito(
                                       textStyle: TextStyle(
                                           color: themecolor,
@@ -302,7 +291,7 @@ class _SignUpState extends State<SignUp> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Text('Sign up',
+                                Text('Create Account',
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 20)),
                               ],

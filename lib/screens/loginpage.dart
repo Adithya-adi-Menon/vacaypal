@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:vacationpal/widget/colors.dart';
 import 'package:vacationpal/widget/fadeanimation.dart';
 import 'package:vacationpal/routes.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   final Function toggle;
@@ -115,35 +116,37 @@ class _LoginPageState extends State<LoginPage> {
                       FadeAnimation(
                         1.5,
                         Text("Welcome",
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                     color: Colors.black,
                                     fontSize: 40,
-                                    fontWeight: FontWeight.w600))),
+                                    fontWeight: FontWeight.bold))),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       FadeAnimation(
                         1.5,
-                        Text("Login to your account",
-                            style: GoogleFonts.nunito(
+                        Text("Login into your Vacay Pal account",
+                            style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w600))),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500))),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       FadeAnimation(
                         1.5,
-                        Image.asset(
-                          'assets/chatting.png',
-                          width: 100,
-                          height: 80,
-                        ),
+                        Lottie.asset("assets/onboarding.json")
+                        // Image.asset(
+                        //   'assets/chatting.png',
+                        //   width: 100,
+                        //   height: 80,
+                        // ),
                       ),
+                      SizedBox(height: 35,),
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: FadeAnimation(
@@ -163,36 +166,8 @@ class _LoginPageState extends State<LoginPage> {
                               key: formkey,
                               child: Column(
                                 children: [
-                                  FadeAnimation(
-                                    1.5,
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          right: 4.0,
-                                          left: 8,
-                                          top: 2,
-                                          bottom: 2),
-                                      child: TextFormField(
-                                        validator: (val) {
-                                          if (!val.isEmpty) {
-                                            if (val.length < 4) {
-                                              return "Username Too short";
-                                            }
-                                          } else if (val.isEmpty) {
-                                            return "Enter Username";
-                                          }
-                                        },
-                                        controller: usernameController,
-                                        decoration: InputDecoration(
-                                            enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.white)),
-                                            focusedBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.white)),
-                                            hintText: "Enter Username"),
-                                      ),
-                                    ),
-                                  ),
+                                  
+                                  
                                   FadeAnimation(
                                     1.5,
                                     Padding(
@@ -212,20 +187,21 @@ class _LoginPageState extends State<LoginPage> {
                                               return "Enter Email correctly";
                                             }
                                           } else
-                                            return "Enter Email";
+                                            return "Email/username";
                                         },
                                         controller: emailController,
                                         decoration: InputDecoration(
                                             enabledBorder: UnderlineInputBorder(
                                                 borderSide: BorderSide(
-                                                    color: Colors.white)),
+                                                    color: Colors.purple)),
                                             focusedBorder: UnderlineInputBorder(
                                                 borderSide: BorderSide(
-                                                    color: Colors.white)),
-                                            hintText: "Email Address"),
+                                                    color: Colors.purple)),
+                                            hintText: "Email/username"),
                                       ),
                                     ),
                                   ),
+                                  
                                   FadeAnimation(
                                     1.5,
                                     Padding(
@@ -235,6 +211,7 @@ class _LoginPageState extends State<LoginPage> {
                                           top: 2,
                                           bottom: 2),
                                       child: TextFormField(
+                                        obscureText: true,
                                         validator: (val) {
                                           if (!val.isEmpty) {
                                             if (val.length < 4) {
@@ -263,7 +240,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 30,
                       ),
                       FadeAnimation(
                           1.5,
@@ -297,7 +274,7 @@ class _LoginPageState extends State<LoginPage> {
                                 },
                                 child: Container(
                                   child: Text(
-                                    "Sign Up",
+                                    " Sign Up",
                                     style: GoogleFonts.nunito(
                                         textStyle: TextStyle(
                                             color:
@@ -305,12 +282,13 @@ class _LoginPageState extends State<LoginPage> {
                                             fontSize: 17,
                                             fontWeight: FontWeight.w800)),
                                   ),
+                                  
                                 ),
                               ),
                             ],
                           )),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       FadeAnimation(
                         1.6,
@@ -328,76 +306,11 @@ class _LoginPageState extends State<LoginPage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
+                                
                                 Text('Login',
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 20)),
                               ],
-                            ),
-                            textColor: Colors.white,
-                          ),
-                        ),
-                      ),
-                      FadeAnimation(
-                        1.6,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                child: Divider(
-                                  thickness: 1.5,
-                                )),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                'or',
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                child: Divider(
-                                  thickness: 1.5,
-                                )),
-                          ],
-                        ),
-                      ),
-                      FadeAnimation(
-                        1.6,
-                        Padding(
-                          padding: const EdgeInsets.only(left: 40.0, right: 40),
-                          child: MaterialButton(
-                            splashColor: themecolor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25)),
-                            elevation: 0.3,
-                            height: 50,
-                            onPressed: () {
-                              // signinwithgoogle();
-                              BotToast.showText(
-                                  text:
-                                      'Feature will be added soon our team is working on it');
-                            },
-                            color: Colors.white70,
-                            child: Center(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/google.png',
-                                    height: 35,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "Sign in with Google",
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
                             ),
                             textColor: Colors.white,
                           ),

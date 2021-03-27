@@ -40,6 +40,9 @@ dependencies:
   pretty_qr_code: ^1.0.1
   image_picker: ^0.6.7
   firebase_storage: ^4.0.1
+  floating_bottom_navigation_bar: ^1.4.1
+  lottie: ^1.0.1
+  confetti: ^0.5.4+1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -61,6 +64,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
+    - assets/
     - assets/img1.jpg
     - assets/img2.jpg
     - assets/img3.jpg
