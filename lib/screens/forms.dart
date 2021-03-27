@@ -6,6 +6,8 @@ import 'package:vacationpal/helper/constants.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart';
+import 'package:lottie/lottie.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Forms extends StatefulWidget {
   @override
@@ -49,32 +51,24 @@ class _FormsState extends State<Forms> {
       });
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Your Events'),
-      ),
-      body: Form(
+    return Container(
+      height: 400,
+      child: Form(
 
         child: Column(
           crossAxisAlignment:
           CrossAxisAlignment.start,
           children: <Widget>[
             TextFormField(
+              decoration: InputDecoration(hintText: "Enter the destination"),
               controller: myController,
             ),
             TextFormField(
+            decoration: InputDecoration(hintText: "Enter the date"),
+
               controller: myController1,
             ),
-            ClipOval(
-              child:SizedBox(
-                width: 100.0,
-                height: 100.0,
-                child: (_image!=null)?Image.file(_image,fit:BoxFit.fill)
-                    :Image.network(
-                  "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx",fit: BoxFit.fill,
-                )
-              )
-            ),
+            
             IconButton(
               icon: Icon(
                 FontAwesomeIcons.camera,
@@ -85,47 +79,20 @@ class _FormsState extends State<Forms> {
               },
             ),
             RaisedButton(
-              color: Colors.blueGrey,
+              color: Color(0xFF695DAE),
               onPressed: (){
                   uploadPic(context);
               },
               elevation: 4.0,
-              splashColor: Colors.blueGrey,
+              splashColor: Color(0xFF695DAE),
               child: Text(
-                'Submit',
-
+                'Create vacay',
+                 style: GoogleFonts.poppins(color: Colors.white),
               ),
             ),
-            FlatButton(
-              onPressed: (){
-                Map<String,dynamic> data = {"field1":myController.text,"field2":myController1.text};
-                Firestore.instance.collection("placed").add(data);
-              },
-              child: Text("submit"),
-              color: Colors.blueAccent,
-            )
           ],
         ),
       ),
-        floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          return showDialog(context: context, builder: (context){
-            return AlertDialog(
-              content: Column(
-                children: [
-                  Text(myController.text),
-                  Text(myController1.text)
-
-                ],
-              )
-
-            );
-          },
-          );
-        },
-          tooltip: 'show me the value ',
-          child: Icon(Icons.text_fields),
-    ),
 
 
     );

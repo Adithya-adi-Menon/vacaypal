@@ -8,6 +8,6 @@ import 'package:vacationpal/screens/swipeanimation/index.dart';
 
 final Map<IconData, Widget> pages = {
   Icons.home: new CardDemo(),
-  Icons.add: Home(),
+  Icons.chat: Home(),
   Icons.person: Profile(),
 };

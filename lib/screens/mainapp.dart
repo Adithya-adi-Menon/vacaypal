@@ -35,7 +35,7 @@ class _MainAppState extends State<MainApp> {
         //height: 50.0,
         currentIndex: _index,
         items: pages.entries
-            .map((entry) => FloatingNavbarItem(icon: entry.key, title: "Test"))
+            .map((entry) => FloatingNavbarItem(icon: entry.key, title: "Home"))
             .toList(),
         selectedBackgroundColor: Color(0xFF695DAE),
         unselectedItemColor: Color(0xFF695DAE),

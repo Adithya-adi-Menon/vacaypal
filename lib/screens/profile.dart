@@ -174,7 +174,7 @@ class _ProfileState extends State<Profile> {
                 height: 15,
               ),
               Text(
-                'INTERESTED VACATIONS',
+                'HOSTED VACATIONS',
                 style: GoogleFonts.poppins(
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
@@ -187,11 +187,27 @@ class _ProfileState extends State<Profile> {
                 child: Column(
                   children: [
                     Container(
-                    height: 150,
+                    height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      gradient: LinearGradient(colors: [Colors.purple, Color(0xFF695DAE)])
-                    ) ,),
+                      color: Color(0xFF695DAE)
+                    ) ,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
+                       Text(
+                      "Taj Mahal",
+                      style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 20
+                    ),
+                    Icon(Icons.edit, color: Colors.white,)
+                      ]
+                    ),),
                   ],
                 ),
               )

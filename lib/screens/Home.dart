@@ -153,7 +153,9 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text("Vacation Pal",
+        
         style: GoogleFonts.robotoMono(color: Color(0xFF695DAE), fontWeight: FontWeight.bold)),
+        
         actions: [
           IconButton(
               icon: Icon(Icons.exit_to_app),
@@ -163,8 +165,16 @@ class _HomeState extends State<Home> {
                     MaterialPageRoute(builder: (context) => Authenticate()));
               }),
         ],
+        
       ),
       
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFFEF5A4C),
+          child: Icon(Icons.group_add,),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => searchScreen()));
+          }),
     );
   }
 }

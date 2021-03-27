@@ -8,6 +8,8 @@ import 'package:vacationpal/screens/SwipeAnimation/activeCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:vacationpal/screens/forms.dart';
 
 class CardDemo extends StatefulWidget {
   @override
@@ -26,8 +28,6 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
   List selectedData = [];
   void initState() {
     super.initState();
-
-    
 
     _buttonController = new AnimationController(
         duration: new Duration(milliseconds: 1000), vsync: this);
@@ -138,7 +138,7 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
           leading: new Container(
             margin: const EdgeInsets.all(15.0),
             child: new Icon(
-              Icons.message,
+              Icons.location_on_rounded,
               color: Colors.white,
               size: 30.0,
             ),
@@ -153,10 +153,29 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
               },
               child: new Container(
                   margin: const EdgeInsets.all(15.0),
-                  child: new Icon(
-                    Icons.add,
-                    color: Colors.white,
-                    size: 30.0,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 30.0,
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => new AlertDialog(
+                          content: Forms(),
+                          actions: <Widget>[
+                            new FlatButton(
+                              onPressed: () {
+                                Navigator.of(context, rootNavigator: true)
+                                    .pop(); // dismisses only the dialog and returns nothing
+                              },
+                              child: new Text('OK'),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                   )),
             ),
           ],
@@ -189,7 +208,7 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
           color: new Color.fromRGBO(106, 94, 175, 1.0),
           alignment: Alignment.center,
           child: dataLength > 0
-              ?  Stack(
+              ? Stack(
                   alignment: AlignmentDirectional.center,
                   children: data.map((item) {
                     if (data.indexOf(item) == dataLength - 1) {
@@ -216,7 +235,10 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
                     }
                   }).toList())
               : new Text("No Event Left",
-                  style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 50.0)),
+                  style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 50.0)),
         )));
   }
 }
