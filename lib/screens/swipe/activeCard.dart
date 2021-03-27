@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:vacationpal/screens/SwipeAnimation/detail.dart';
+import './detail.dart';
 import 'package:flutter/material.dart';
 
 Positioned cardDemo(
@@ -21,8 +21,16 @@ Positioned cardDemo(
   // print("Card");
   return new Positioned(
     bottom: 100.0 + bottom,
-    right: flag == 0 ? right != 0.0 ? right : null : null,
-    left: flag == 1 ? right != 0.0 ? right : null : null,
+    right: flag == 0
+        ? right != 0.0
+            ? right
+            : null
+        : null,
+    left: flag == 1
+        ? right != 0.0
+            ? right
+            : null
+        : null,
     child: new Dismissible(
       key: new Key(new Random().toString()),
       crossAxisEndOffset: -0.3,
@@ -58,8 +66,8 @@ Positioned cardDemo(
                 //     new MaterialPageRoute(
                 //         builder: (context) => new DetailPage(type: img)));
                 Navigator.of(context).push(new PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => new DetailPage(type: img),
-                    ));
+                  pageBuilder: (_, __, ___) => new DetailPage(type: img),
+                ));
               },
               child: new Card(
                 color: Colors.transparent,

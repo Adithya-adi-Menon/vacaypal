@@ -1,6 +1,6 @@
-import 'package:vacationpal/screens/SwipeAnimation/data.dart';
+import './data.dart';
 import 'package:flutter/material.dart';
-import 'package:vacationpal/screens/SwipeAnimation/styles.dart';
+import './styles.dart';
 import 'package:flutter/scheduler.dart';
 
 class DetailPage extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:vacationpal/routes.dart';
@@ -30,15 +30,17 @@ class _MainAppState extends State<MainApp> {
               _pageController.jumpToPage(index);
             });
           }),
-      bottomNavigationBar: CurvedNavigationBar(
-        height: 50.0,
-        index: _index,
-        items: pages.keys.toList(),
-        color: Colors.white,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Color(0xFF695DAE),
-        animationCurve: Curves.easeInOut,
-        animationDuration: Duration(milliseconds: 600),
+      bottomNavigationBar: FloatingNavbar(
+        //height: 50.0,
+        currentIndex: _index,
+        items: pages.entries
+            .map((entry) => FloatingNavbarItem(icon: entry.key, title: "Test"))
+            .toList(),
+        //color: Colors.white,
+        //buttonBackgroundColor: Colors.white,
+        //backgroundColor: Color(0xFF695DAE),
+        //animationCurve: Curves.easeInOut,
+        //animationDuration: Duration(milliseconds: 600),
         onTap: (int index) {
           setState(() {
             _index = index;
