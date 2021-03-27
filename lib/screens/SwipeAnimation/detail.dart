@@ -1,5 +1,6 @@
 import 'package:vacationpal/screens/SwipeAnimation/data.dart';
 import 'package:flutter/material.dart';
+import 'package:confetti/confetti.dart';
 import 'package:vacationpal/screens/SwipeAnimation/styles.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -21,11 +22,13 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
   List data = imageData;
   double _appBarHeight = 256.0;
   AppBarBehavior _appBarBehavior = AppBarBehavior.pinned;
+  ConfettiController _controller;
 
   void initState() {
     _containerController = new AnimationController(
         duration: new Duration(milliseconds: 2000), vsync: this);
     super.initState();
+
     width = new Tween<double>(
       begin: 200.0,
       end: 220.0,
@@ -50,6 +53,9 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
       });
     });
     _containerController.forward();
+    _controller = new ConfettiController(
+      duration: new Duration(seconds: 2),
+    );
   }
 
   @override
@@ -110,7 +116,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                             _appBarBehavior == AppBarBehavior.snapping,
                         snap: _appBarBehavior == AppBarBehavior.snapping,
                         flexibleSpace: new FlexibleSpaceBar(
-                          title: new Text("Party"),
+                          title: new Text("Manali"),
                           background: new Stack(
                             fit: StackFit.expand,
                             children: <Widget>[
@@ -246,6 +252,21 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                       ),
                     ],
                   ),
+                  ConfettiWidget(
+                    blastDirectionality: BlastDirectionality.explosive,
+                    confettiController: _controller,
+                    particleDrag: 0.05,
+                    emissionFrequency: 0.05,
+                    numberOfParticles: 25,
+                    gravity: 0.05,
+                    shouldLoop: false,
+                    colors: [
+                      Colors.green,
+                      Colors.red,
+                      Colors.yellow,
+                      Colors.blue,
+                    ],
+                  ),
                   new Container(
                       width: 600.0,
                       height: 80.0,
@@ -274,7 +295,9 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                               )),
                           new FlatButton(
                               padding: new EdgeInsets.all(0.0),
-                              onPressed: () {},
+                              onPressed: () {
+                                _controller.play();
+                              },
                               child: new Container(
                                 height: 60.0,
                                 width: 130.0,
