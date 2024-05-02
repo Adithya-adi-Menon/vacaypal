@@ -23,7 +23,7 @@ jobs:
         node-version: 16.x
 
     - name: Upload to Lighthouse.storage
-      run: |
+      run:
         npm install @lighthouse-web3/sdk archiver
         node backup.js
 
